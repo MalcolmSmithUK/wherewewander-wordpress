@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.me/
  *
- * @package _s
+ * @package Where_We_Wander
  */
 
 /**
@@ -13,23 +13,23 @@
  * See: https://jetpack.me/support/infinite-scroll/
  * See: https://jetpack.me/support/responsive-videos/
  */
-function _s_jetpack_setup() {
+function where_we_wander_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => '_s_infinite_scroll_render',
+		'render'    => 'where_we_wander_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
 }
-add_action( 'after_setup_theme', '_s_jetpack_setup' );
+add_action( 'after_setup_theme', 'where_we_wander_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function _s_infinite_scroll_render() {
+function where_we_wander_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

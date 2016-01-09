@@ -1,0 +1,66 @@
+@font-face {
+	font-family: 'wherewewander';
+	src:url('fonts/wherewewander.eot?40kpxz');
+	src:url('fonts/wherewewander.eot?40kpxz#iefix') format('embedded-opentype'),
+		url('fonts/wherewewander.ttf?40kpxz') format('truetype'),
+		url('fonts/wherewewander.woff?40kpxz') format('woff'),
+		url('fonts/wherewewander.svg?40kpxz#wherewewander') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.t-icon {
+    /* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'wherewewander' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.t-icon--www:before {
+	content: "\e90a";
+}
+.t-icon--vine:before {
+	content: "\e902";
+}
+.t-icon--footprint:before {
+	content: "\e906";
+}
+.t-icon--right:before {
+	content: "\e90b";
+}
+.t-icon--left:before {
+	content: "\e90c";
+}
+.t-icon--instagram:before {
+	content: "\e909";
+}
+.t-icon--loading:before {
+	content: "\e908";
+}
+.t-icon--email:before {
+	content: "\e907";
+}
+.t-icon--pinterest:before {
+	content: "\e900";
+}
+.t-icon--twitter:before {
+	content: "\e901";
+}
+.t-icon--facebook:before {
+	content: "\e903";
+}
+.t-icon--location-pin:before {
+	content: "\e904";
+}
+.t-icon--location:before {
+	content: "\e905";
+}
+
