@@ -154,3 +154,23 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Custom functions
+ */
+
+function where_we_wander_footer_quote($page_id) {
+	$quotes = array(
+		'home'			=> array(
+			'text'			=> 'Stuff your eyes with wonder, live as if you\'d drop dead in ten seconds. See the world.',
+			'author'		=> 'Ray Bradbury'
+		)
+	);
+
+	if (isset($quotes[$page_id])) {
+		return $quotes[$page_id];
+	}
+	else {
+		return $quotes['home'];
+	}
+}
