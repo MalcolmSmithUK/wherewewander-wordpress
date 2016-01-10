@@ -18,7 +18,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
 
 /**
- * wherewewander v0.2.4 (2016-01-09T14:03:49)
+ * wherewewander v0.2.4 (2016-01-09T20:21:07)
  **/
 /* [01] */
 /* [02] */
@@ -1798,6 +1798,15 @@ name: objects.list
   font-family: "Quattrocento Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* line 39, ../sass/utilities/_text.scss */
+.u-screen-reader {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
 /* [04] */
 /* line 1, ../sass/utilities/_float.scss */
 .pull-left {
@@ -1828,6 +1837,18 @@ name: objects.list
 /* line 10, ../sass/utilities/_visibility.scss */
 .u-hide {
   display: none;
+}
+
+/* line 14, ../sass/utilities/_visibility.scss */
+.u-visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
 }
 
 /*# sourceMappingURL=wherewewander.css.map */
