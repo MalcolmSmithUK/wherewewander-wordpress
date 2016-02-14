@@ -118,14 +118,10 @@ function where_we_wander_scripts() {
 
 	wp_enqueue_style( 'where-we-wander-icomoon', get_template_directory_uri() . '/icomoon/style.css' );
 
-	wp_enqueue_script( 'where-we-wander-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'where-we-wander-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
 	wp_enqueue_script( 'where-we-wander-app', get_template_directory_uri() . '/js/wherewewander.js', array(), '20130115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
+		// wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'where_we_wander_scripts' );
@@ -159,11 +155,157 @@ require get_template_directory() . '/inc/jetpack.php';
  * Custom functions
  */
 
+/**
+ * Tiny MCE Customisation
+ */
+function where_we_wander_add_editor_styles() {
+	add_editor_style( 'style.css' );
+}
+function where_we_wander_add_editor_fonts() {
+	add_editor_style( str_replace( ',', '%2C', '//fonts.googleapis.com/css?family=Lato:300,400,700' ) );
+}
+function where_we_wander_insert_formats( $init_array ) {  
+	// Define the style_formats array
+	$style_formats = array(  
+		array(
+			'title' => 'Image Rotation',
+			'items' => array(
+				array(  
+					'title' => '↔ Image Group',  
+					'block' => 'p',
+					'classes' => 'u-text-center',
+					'wrapper' => false
+				), 
+				array(  
+					'title' => '⇠ Rotate Left',  
+					'selector' => 'img',
+					'classes' => 'blog-image rotate-left',
+					'wrapper' => false
+				),  
+				array(  
+					'title' => '← Rotate Left (more)',  
+					'selector' => 'img',
+					'classes' => 'blog-image rotate-left-more',
+					'wrapper' => false
+				),
+				array(  
+					'title' => '⇢ Rotate Right', 
+					'selector' => 'img', 
+					'classes' => 'blog-image rotate-right',
+					'wrapper' => false
+				),  
+				array(  
+					'title' => '→ Rotate Right (more)',  
+					'selector' => 'img',
+					'classes' => 'blog-image rotate-right-more',
+					'wrapper' => false
+				)
+			)
+		)
+	);
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );  
+	
+	return $init_array;  
+	
+}
+function where_we_wander_editor_buttons_2( $buttons ) {
+		array_splice( $buttons, 1, 0, 'styleselect' );
+		return $buttons;
+}
+// Attach callback to 'tiny_mce_before_init' 
+add_action( 'admin_init', 'where_we_wander_add_editor_styles' );
+add_action( 'after_setup_theme', 'where_we_wander_add_editor_fonts' );
+add_filter( 'tiny_mce_before_init', 'where_we_wander_insert_formats' );  
+add_filter( 'mce_buttons_2', 'where_we_wander_editor_buttons_2' );
+
+/**
+ * Get Page Id
+ */
+
+function where_we_wander_get_page_id($post) {
+	if (isset($post) && property_exists($post, 'post_name')) {
+		return $post->post_name;
+	}
+	else {
+		return '';
+	}
+}
+
+/**
+ * Get All Posts
+ */
+
+function where_we_wander_get_posts() {
+	$args = array(
+		'numberposts'       => -1,
+		'post_type'         => 'post',
+		'post_status'				=> 'publish'
+	);
+
+	return get_posts( $args );
+}
+
+/**
+ * Get All Attachments in Post
+ */
+
+function where_we_wander_get_images() {
+	$args = array(
+		'numberposts'     => -1,
+		'post_type'  			=> 'attachment',
+		'post_mime_type'  => 'image',
+		'post_parent'			=> null
+	);
+
+	return get_posts( $args );
+}
+
+/**
+ * Get Wander Attachments
+ */
+
+function where_we_wander_get_wander_objects() {
+	$images = where_we_wander_get_images();
+	$objects = [];
+
+	foreach ( $images as $image ) {
+		$objects[] = array(
+			'id'				=> $image->ID,
+			'src'       => wp_get_attachment_image_src($image->ID, 'full')[0],
+			'thumb'     => wp_get_attachment_image_src($image->ID, 'large')[0],
+			'caption'   => $image->post_title
+		);
+	}
+
+	return $objects;
+}
+
+/**
+ * Footer Quotes
+ */
+
 function where_we_wander_footer_quote($page_id) {
 	$quotes = array(
 		'home'			=> array(
 			'text'			=> 'Stuff your eyes with wonder, live as if you\'d drop dead in ten seconds. See the world.',
 			'author'		=> 'Ray Bradbury'
+		),
+		'about'			=> array(
+			'text'			=> 'If you reject the food, ignore the customs &amp; avoid the people, you might better stay at home.',
+			'author'		=> 'James Michener'
+		),
+		'where'			=> array(
+			'text'			=> 'Travelling - it leaves you speechless, then turns you into a storyteller.',
+			'author'		=> 'Ibn Battuta'
+		),
+		'wander'			=> array(
+			'text'			=> 'We wander for distraction but we travel for fulfilment.',
+			'author'		=> 'Hilarie Belloc'
+		),
+		'contact'			=> array(
+			'text'			=> 'The real voyage of discovery consists not in seeking new landscapes, but in having new eyes.',
+			'author'		=> 'Marcel Proust'
 		)
 	);
 
@@ -173,4 +315,30 @@ function where_we_wander_footer_quote($page_id) {
 	else {
 		return $quotes['home'];
 	}
+}
+
+/**
+ * Post Navigation
+ */
+
+function where_we_wander_get_post_navigation($id) {
+	$posts = where_we_wander_get_posts();
+
+	foreach ( $posts as $index => $post ) {
+		if ($post->ID === $id) {
+			$post_index = $index;
+			break;
+		}
+	}
+
+	$nav = array_slice($posts, $post_index + 1, 4);
+	$max = min(count($posts) - 1, 4);
+	$inc = 0;
+
+	while (count($nav) < $max) {
+		$nav[] = $posts[$inc];
+		$inc++;
+	}
+
+	return $nav;
 }
