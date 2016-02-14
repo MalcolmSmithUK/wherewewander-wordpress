@@ -9,56 +9,41 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-			<section class="error-404 not-found">
-				<header class="page-header">
-					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'where-we-wander' ); ?></h1>
-				</header><!-- .page-header -->
-
-				<div class="page-content">
-					<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'where-we-wander' ); ?></p>
-
+	<div class="o-page__inset">
+		<div class="u-grid u-grid--fixed">
+			<div class="u-grid__row">
+				<div class="u-grid__col u-grid__col--12 u-grid--break-bottom u-text-center">
+					<h1><?php esc_html_e( 'Oops! That page could not be found...', 'where-we-wander' ); ?></h1>
+					<?php get_search_form(); ?>
+				</div>
+			</div>
+			<div class="u-grid__row u-grid--break-top">
+				<div class="u-grid__col u-grid__col--4 u-text-center">
+					<?php the_widget( 'WP_Widget_Recent_Posts' );?>
+				</div>
+				<div class="u-grid__col u-grid__col--4 u-text-center">
+					<h2><?php esc_html_e( 'Most Used Categories', 'where-we-wander' ); ?></h2>
+					<ul class="u-list-unstyled">
 					<?php
-						get_search_form();
-
-						the_widget( 'WP_Widget_Recent_Posts' );
-
-						// Only show the widget if site has multiple categories.
-						if ( where_we_wander_categorized_blog() ) :
+						wp_list_categories( array(
+							'orderby'    => 'count',
+							'order'      => 'DESC',
+							'show_count' => 1,
+							'title_li'   => '',
+							'number'     => 100,
+						) );
 					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'where-we-wander' ); ?></h2>
-						<ul>
-						<?php
-							wp_list_categories( array(
-								'orderby'    => 'count',
-								'order'      => 'DESC',
-								'show_count' => 1,
-								'title_li'   => '',
-								'number'     => 10,
-							) );
-						?>
-						</ul>
-					</div><!-- .widget -->
-
+					</ul>
+				</div>
+				<div class="u-grid__col u-grid__col--4 u-text-center">
 					<?php
-						endif;
-
-						/* translators: %1$s: smiley */
-						$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'where-we-wander' ), convert_smilies( ':)' ) ) . '</p>';
-						the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
-
+						the_widget( 'WP_Widget_Archives');
 						the_widget( 'WP_Widget_Tag_Cloud' );
 					?>
-
-				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+				</div>
+			</div>
+		</div>
+	</div>
 
 <?php
 get_footer();
