@@ -7,18 +7,19 @@
  * @package Where_We_Wander
  */
 
-get_header(); ?>
+get_header();
+get_template_part( 'template-parts/page-start', 'none' );
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+?>
+    <main class="u-grid__col u-grid__col--12" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
 
 			<header class="page-header">
 				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
+					the_archive_title( '<h1>', '</h1>' );
+					the_archive_description( '<div class="u-text-lead">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
@@ -47,5 +48,5 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_template_part( 'template-parts/page-end', 'none' );
 get_footer();

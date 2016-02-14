@@ -9,24 +9,22 @@
  * @package Where_We_Wander
  */
 
+
+$www_footer_id = where_we_wander_get_page_id($post);
+$www_footer_quote = where_we_wander_footer_quote($www_footer_id);
+
 ?>
 
 		</section><!-- #content -->
 	</div>
 	<section>
-		<div class="c-waves">
-			<div class="c-waves__wave c-waves__wave--bottom c-waves__wave--large"></div>
-			<div class="c-waves__wave c-waves__wave--bottom c-waves__wave--mid"></div>
-			<div class="c-waves__wave c-waves__wave--bottom c-waves__wave--small"></div>
-		</div>
 		<footer class="c-footer">
 			<div class="u-grid u-grid--fixed">
 				<div class="u-grid__row">
 					<div class="u-grid__col u-grid__col--9">
 						<div class="o-valign">
 							<div class="o-valign__content o-valign__content--middle c-footer__content">
-							<?php $www_footer_quote = where_we_wander_footer_quote($post->post_name); ?>
-								<span class="e-h5">&quot;<?php echo $www_footer_quote['text']; ?>&quot;</span> - <em class="u-text-nowrap"><?php echo $www_footer_quote['author']; ?></em>
+								<strong>&quot;<?php echo $www_footer_quote['text']; ?>&quot;</strong> - <span class="u-text-nowrap"><?php echo $www_footer_quote['author']; ?></span>
 							</div>
 						</div>
 					</div>

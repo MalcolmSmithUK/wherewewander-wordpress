@@ -12,10 +12,11 @@
  * @package Where_We_Wander
  */
 
-get_header(); ?>
+get_header();
+get_template_part( 'template-parts/page-start', 'none' );
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+?>
+    <main class="u-grid__col u-grid__col--12" role="main">
 
 			<?php
 			while ( have_posts() ) : the_post();
@@ -24,15 +25,14 @@ get_header(); ?>
 
 				// If comments are open or we have at least one comment, load up the comment template.
 				if ( comments_open() || get_comments_number() ) :
-					comments_template();
+					// comments_template();
 				endif;
 
 			endwhile; // End of the loop.
 			?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+get_template_part( 'template-parts/page-end', 'none' );
 get_footer();

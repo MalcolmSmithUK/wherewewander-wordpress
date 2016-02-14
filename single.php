@@ -7,29 +7,24 @@
  * @package Where_We_Wander
  */
 
-get_header(); ?>
+get_header();
+get_template_part( 'template-parts/page-start', 'none' );
 
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+while ( have_posts() ) : the_post();
+?>
+	<main class="u-grid__col u-grid__col--12" role="main">
+		<?php get_template_part( 'template-parts/content', 'single' ); ?>
+		<?php if ( comments_open() || get_comments_number() ) : ?>
+			<?php // comments_template(); ?>
+		<?php endif; ?>
+	</main><!-- #main -->
 
-		<?php
-		while ( have_posts() ) : the_post();
+	<div class="u-grid__col u-grid__col--12">
+		<?php get_template_part( 'template-parts/content', 'navigation' ); ?>
+	</div>
 
-			get_template_part( 'template-parts/content', get_post_format() );
-
-			the_post_navigation();
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+<?php endwhile; // End of the loop. ?>
 
 <?php
-get_sidebar();
+get_template_part( 'template-parts/page-end', 'none' );
 get_footer();

@@ -10,7 +10,7 @@
  */
 
 ?><!DOCTYPE html>
-<html <?php language_attributes(); ?>>
+<html <?php language_attributes(); ?> class="wordpress">
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,8 +22,11 @@
 </head>
 
 <body <?php body_class(); ?> onkeyup="www && www.gallery.processKey(event)">
-	<a class="u-screen-reader" href="#content"><?php esc_html_e( 'Skip to content', 'where-we-wander' ); ?></a>
+	<a class="screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'where-we-wander' ); ?></a>
 
+<?php if (where_we_wander_get_page_id($post) === 'contact') { ?>
+  <div class="c-fixed" style="background-image: url(<?php bloginfo('template_directory'); ?>/img/www-contact.jpg)"></div>
+<?php } ?>
 	<div class="o-page o-page--fixed">
 		<section class="u-anchor">
 			<div class="c-header">
@@ -54,7 +57,7 @@
 							<?php endif; ?>
 
 										<a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="c-logo">
-											<img src="<?php bloginfo('template_directory');?>/img/www-logo-grey.png" alt="<?php bloginfo( 'name' ); ?>" class="o-banner__content o-banner__content--displaced c-logo__image"/>
+											<img src="<?php bloginfo('template_directory');?>/img/www-logo.png" alt="<?php bloginfo( 'name' ); ?>" class="o-banner__content o-banner__content--displaced c-logo__image"/>
 											<span class="u-visually-hidden"><?php bloginfo( 'name' ); ?></span>
 										</a>
 
@@ -69,19 +72,8 @@
 						<div class="u-grid__col u-grid__col--4">
 							<div class="o-banner o-banner--fill u-text-right">
 								<div class="o-banner__cell c-well">
-									<div class="e-h1">
-										<a href="https://www.instagram.com/wherewewander_/" target="_blank" class="c-icon-link c-icon-link--header">
-											<i class="t-icon t-icon--instagram"></i>
-										</a>
-										<a href="https://www.pinterest.com/wherewewander/" target="_blank" class="c-icon-link c-icon-link--header">
-											<i class="t-icon t-icon--pinterest"></i>
-										</a>
-										<a href="https://twitter.com/WhereWeWander" target="_blank" class="c-icon-link c-icon-link--header">
-											<i class="t-icon t-icon--twitter"></i>
-										</a>
-										<a href="https://vine.co/u/1232693002611675136" target="_blank" class="c-icon-link c-icon-link--header">
-											<i class="t-icon t-icon--vine"></i>
-										</a>
+									<div class="e-h1 s-nav-icon">
+										<?php get_template_part( 'template-parts/social', 'none' ); ?>
 									</div>
 								</div>
 							</div>
@@ -96,21 +88,15 @@
 						<div class="u-grid__col u-grid__col--6 u-grid__col--offset-3">
 							<div class="c-nav__guideline c-nav__guideline--top"></div>
 							<nav class="o-list o-list--distributed u-text-center c-nav__anchor e-h4">
-								<a href="<?php get_home_url(); ?>" class="o-list__item c-nav__item c-nav__item--active">Home</a>
-								<a href="about.php" class="o-list__item c-nav__item">About</a>
-								<a href="where.php" class="o-list__item c-nav__item">Where</a>
-								<a href="wander.php" class="o-list__item c-nav__item">Wander</a>
-								<a href="contact.php" class="o-list__item c-nav__item">Contact</a>
+								<a href="<?php echo get_home_url(); ?>" class="o-list__item c-nav__item c-nav__item--active c-nav__item--left">Home</a>
+								<a href="<?php echo get_home_url(); ?>/about/" class="o-list__item c-nav__item">About</a>
+								<a href="<?php echo get_home_url(); ?>/where/" class="o-list__item c-nav__item">Where</a>
+								<a href="<?php echo get_home_url(); ?>/wander/" class="o-list__item c-nav__item">Wander</a>
+								<a href="<?php echo get_home_url(); ?>/contact/" class="o-list__item c-nav__item c-nav__item--right">Contact</a>
 							</nav>
 						</div>
 					</div>
-					<div class="c-nav__guideline c-nav__guideline--bottom"></div>
 				</div>
-			</div>
-			<div class="c-waves">
-				<div class="c-waves__wave c-waves__wave--top c-waves__wave--small"></div>
-				<div class="c-waves__wave c-waves__wave--top c-waves__wave--mid"></div>
-				<div class="c-waves__wave c-waves__wave--top c-waves__wave--large"></div>
 			</div>
 		</section>
 		<section id="content">

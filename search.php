@@ -7,10 +7,12 @@
  * @package Where_We_Wander
  */
 
-get_header(); ?>
+get_header();
+get_template_part( 'template-parts/page-start', 'none' );
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+?>
+
+	<main class="u-grid__col u-grid__col--12" role="main">
 
 		<?php
 		if ( have_posts() ) : ?>
@@ -28,7 +30,7 @@ get_header(); ?>
 				 * If you want to overload this in a child theme then include a file
 				 * called content-search.php and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', 'search' );
+				get_template_part( 'template-parts/content', 'multiple' );
 
 			endwhile;
 
@@ -40,9 +42,8 @@ get_header(); ?>
 
 		endif; ?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+	</main><!-- #main -->
 
 <?php
-get_sidebar();
+get_template_part( 'template-parts/page-end', 'none' );
 get_footer();
