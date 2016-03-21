@@ -20,9 +20,9 @@ get_template_part( 'template-parts/page-start', 'none' );
         </h2>
       </div>
       <div class="u-grid__col u-grid__col--12 u-text-center u-grid--break-bottom">
-        <a href="mailto:hello@wherewewander.co.uk" class="e-h4">
-          hello@wherewewander.co.uk
-        </a>
+        <a href="mailto:chabonny@gmail.com" class="e-h4">chabonny@gmail.com</a>
+        <br />
+        <a href="mailto:rosshodges@hotmail.co.uk" class="e-h4">rosshodges@hotmail.co.uk</a>
       </div>
       <div class="u-grid__col u-grid__col--12 u-text-center">
         <span class="e-h1 s-contact-icon">
