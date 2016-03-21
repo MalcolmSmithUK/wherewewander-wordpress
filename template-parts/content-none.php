@@ -9,12 +9,12 @@
 
 ?>
 
-<section class="no-results not-found u-text-center">
+<section class="no-results not-found u-text-center ">
 	<header class="page-header">
-		<h1 class="page-title"><?php esc_html_e( 'Nothing Found', 'where-we-wander' ); ?></h1>
+		<h1 class="page-title"><?php esc_html_e( 'Nothing Found...', 'where-we-wander' ); ?></h1>
 	</header><!-- .page-header -->
 
-	<div class="page-content">
+	<div class="page-content u-grid--break-bottom-inside">
 		<?php
 		if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
@@ -28,10 +28,13 @@
 
 		else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'where-we-wander' ); ?></p>
+			<p><?php esc_html_e( 'It seems we couldn&rsquo;t find any posts. Perhaps searching can help?', 'where-we-wander' ); ?></p>
 			<?php
 				get_search_form();
 
 		endif; ?>
 	</div><!-- .page-content -->
+
 </section><!-- .no-results -->
+
+<?php get_template_part( 'template-parts/content', 'find' ); ?>
