@@ -41,7 +41,7 @@
 										</div>
 										<div class="o-media__body e-h4">
 											<strong>Current Location</strong><br />
-											<span editable>Perth, WA Australia</span>
+											<span>Sydney, NSW Australia</span>
 										</div>
 									</div>
 								</div>
