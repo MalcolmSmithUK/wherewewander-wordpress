@@ -18,13 +18,12 @@ get_template_part( 'template-parts/page-start', 'none' );
 ?>
 	<div class="u-grid__col u-grid__col--4">
 		<article class="c-well">
-			Welcome to Where We Wander... A travel &amp; culture blog sharing stories &amp; snaps from Charlotte &amp; Ross, as they quit their jobs within the Fashion &amp; Theatre Industries in London, and move to Australia for a year of wandering. 
+			Welcome to Where We Wander: a travel and culture blog.  We're Charlotte and Ross - a 30 year-old couple from London now travelling around Australia.  We love to travel and this is our first time uprooting from home for a year to truly experience as much of Australia's unique natural landscape as possible.  Through business and pleasure, we also love theatre, film and fashion, so discovering Australia's culture will be a big part of our blog too, as will food and wine.  We love trying new cuisines, so we can't wait to sample each region's cafes, restaurants and wineries and create new recipes.  We'll be sharing our journey across Australia as we experience all things travel and culture through our <a href="<?php echo get_home_url(); ?>/where/">Where</a> blog and <a href="<?php echo get_home_url(); ?>/wander/">Wander</a> gallery.
 		</article>
 		<article class="c-well">
 			<p class="u-text-lead">
 				One year.<br />
-				One country.<br />
-				One big adventure.<br /><br />
+				One country.<br /><br />
 				Follow us to see<br />
 				<a href="<?php echo get_home_url(); ?>/where/">Where</a> We <a href="<?php echo get_home_url(); ?>/wander/">Wander</a>...
 			</p>
@@ -41,7 +40,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Perth</div>
 							<div>
-								<span>To be discovered...</span>
+								<span>Discovered...</span>
 								<span>January</span>
 							</div>
 						</div>
@@ -51,7 +50,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Exmouth</div>
 							<div>
-								<span>To be discovered...</span>
+								<span>Discovered...</span>
 								<span>January</span>
 							</div>
 						</div>
@@ -61,7 +60,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Red Centre</div>
 							<div>
-								<span>To be discovered...</span>
+								<span>Discovered...</span>
 								<span>February</span>
 							</div>
 						</div>
@@ -69,7 +68,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 					</a>
 					<a href="<?php echo get_home_url(); ?>/category/sydney/" class="c-popover c-map__pin js-popover__cta" style="top: 67%; left: 89%;">
 						<div class="c-popover__menu c-popover__menu--left">
-							<div class="e-h4 c-popover__title">Syndey</div>
+							<div class="e-h4 c-popover__title">Sydney</div>
 							<div>
 								<span>To be discovered...</span>
 								<span>March</span>
