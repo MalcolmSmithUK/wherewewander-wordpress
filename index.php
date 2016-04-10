@@ -36,7 +36,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 		<div class="c-map" id="js-popover">
 			<div class="c-map__container u-center">
 				<div class="c-map__anchor">
-					<a href="<?php echo get_home_url(); ?>/category/perth/" class="c-popover c-map__pin js-popover__cta" style="top: 62%; left: 11%;">
+					<a href="<?php echo get_home_url(); ?>/category/perth/" class="c-popover c-map__pin c-map__pin--active js-popover__cta" style="top: 62%; left: 11%;">
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Perth</div>
 							<div>
@@ -46,7 +46,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 						</div>
 						<i class="t-icon t-icon--www c-map__icon"></i>
 					</a>
-					<a href="<?php echo get_home_url(); ?>/category/exmouth/" class="c-popover c-map__pin js-popover__cta" style="top: 35%; left: 4%;">
+					<a href="<?php echo get_home_url(); ?>/category/exmouth/" class="c-popover c-map__pin c-map__pin--active js-popover__cta" style="top: 35%; left: 4%;">
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Exmouth</div>
 							<div>
@@ -56,7 +56,7 @@ get_template_part( 'template-parts/page-start', 'none' );
 						</div>
 						<i class="t-icon t-icon--www c-map__icon"></i>
 					</a>
-					<a href="<?php echo get_home_url(); ?>/category/red-center/" class="c-popover c-map__pin js-popover__cta" style="top: 36%; left: 49%;">
+					<a href="<?php echo get_home_url(); ?>/category/red-center/" class="c-popover c-map__pin c-map__pin--active js-popover__cta" style="top: 36%; left: 49%;">
 						<div class="c-popover__menu c-popover__menu--right">
 							<div class="e-h4 c-popover__title">Red Centre</div>
 							<div>
@@ -66,11 +66,11 @@ get_template_part( 'template-parts/page-start', 'none' );
 						</div>
 						<i class="t-icon t-icon--www c-map__icon"></i>
 					</a>
-					<a href="<?php echo get_home_url(); ?>/category/sydney/" class="c-popover c-map__pin js-popover__cta" style="top: 67%; left: 89%;">
+					<a href="<?php echo get_home_url(); ?>/category/sydney/" class="c-popover c-map__pin c-map__pin--active js-popover__cta" style="top: 67%; left: 89%;">
 						<div class="c-popover__menu c-popover__menu--left">
 							<div class="e-h4 c-popover__title">Sydney</div>
 							<div>
-								<span>To be discovered...</span>
+								<span>Discovered...</span>
 								<span>March</span>
 							</div>
 						</div>
