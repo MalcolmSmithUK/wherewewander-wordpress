@@ -114,11 +114,11 @@ add_action( 'widgets_init', 'where_we_wander_widgets_init' );
  * Enqueue scripts and styles.
  */
 function where_we_wander_scripts() {
-	wp_enqueue_style( 'where-we-wander-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'where-we-wander-style', get_stylesheet_uri(), array(), where_we_wander_get_theme_version());
 
-	wp_enqueue_style( 'where-we-wander-icomoon', get_template_directory_uri() . '/icomoon/style.css' );
+	wp_enqueue_style( 'where-we-wander-icomoon', get_template_directory_uri() . '/icomoon/style.css' , array(), where_we_wander_get_theme_version());
 
-	wp_enqueue_script( 'where-we-wander-app', get_template_directory_uri() . '/js/wherewewander.js', array(), '20130115', true );
+	wp_enqueue_script( 'where-we-wander-app', get_template_directory_uri() . '/js/wherewewander.js', array(), where_we_wander_get_theme_version());
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		// wp_enqueue_script( 'comment-reply' );
@@ -341,4 +341,13 @@ function where_we_wander_get_post_navigation($id) {
 	}
 
 	return $nav;
+}
+
+/**
+ * Retrieve theme version
+ */
+
+function where_we_wander_get_theme_version() {
+	$theme = wp_get_theme();
+	return $theme->Version;
 }
